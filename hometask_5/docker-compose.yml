@@ -1,0 +1,11 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MY_ROOT_PASSWORD: nastia2312
+      MYSQL_DATABASE: senysh
+  apache:
+    image: bitnami/apache:latest
+    restart: always
