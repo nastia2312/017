@@ -2,11 +2,12 @@ Vagrant.configure("2") do |config|
   config.vm.define "ubuntu" do |ubuntu|
   config.vm.box = "ubuntu/bionic64"
   ubuntu.vm.network "forwarded_port", guest: 80, host: 8080
-  ubuntu.vm.synced_folder "/home/dell/hometask_5/Senysh", "/home/vagrant/"
+  ubuntu.vm.synced_folder "./hometask_5/Senysh", "/home/ubuntu/docker_compose.yml"
   ubuntu.vm.provision "shell",
   inline:
     "apt update
-    apt install docker-ce
+    apt -y install docker-ce
+    docker run -d
     docker-compose up -d"
   end 
 end
