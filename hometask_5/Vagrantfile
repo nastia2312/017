@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
   config.vm.define "ubuntu" do |ubuntu|
   config.vm.box = "ubuntu/bionic64"
   ubuntu.vm.network "forwarded_port", guest: 80, host: 8080
-  ubuntu.vm.synced_folder "./Senysh/Vagrantfile", "/home/ubuntu/docker_compose.yml"
+  ubuntu.vm.synced_folder "./Vagrantfile", "/home/ubuntu/docker_compose.yml"
   ubuntu.vm.provision "shell",
   inline:
     "apt update
